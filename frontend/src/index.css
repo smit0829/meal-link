@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-clay-50 text-basil-950 font-body antialiased;
+  background-image: radial-gradient(circle at top left, rgba(232, 169, 59, 0.05), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(53, 127, 85, 0.05), transparent 40%);
+  background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: "Fraunces", serif;
+  letter-spacing: -0.02em;
+}
+
+/* focus ring visible for keyboard nav */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #357f55;
+  outline-offset: 2px;
+}
+
+::selection {
+  background: #e8a93b;
+  color: #0f2318;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.card {
+  @apply bg-white/80 backdrop-blur-md rounded-card shadow-soft border border-basil-950/5 transition-transform duration-300 hover:-translate-y-1 hover:shadow-glow;
+}
+
+.glass-panel {
+  @apply bg-white/60 backdrop-blur-xl border border-white/40 shadow-soft rounded-2xl;
+}
+
+.btn-primary {
+  @apply relative overflow-hidden inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-basil-800 to-basil-600 text-clay-50 px-6 py-2.5 font-medium hover:scale-105 active:scale-95 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-md hover:shadow-xl hover:shadow-basil-600/30;
+}
+
+.btn-primary::after {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-full bg-white/20 transform -translate-x-[150%] skew-x-[-20deg] transition-transform duration-500 ease-in-out;
+}
+
+.btn-primary:not(:disabled):hover::after {
+  @apply translate-x-[150%];
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-basil-800/20 text-basil-800 px-6 py-2.5 font-medium hover:bg-basil-800/5 hover:border-basil-800/40 hover:scale-105 active:scale-95 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-sm;
+}
+
+.btn-danger {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-rescue-red to-[#d4371c] text-clay-50 px-6 py-2.5 font-medium hover:scale-105 active:scale-95 transition-all duration-300 disabled:opacity-40 shadow-md hover:shadow-xl hover:shadow-rescue-red/30;
+}
+
+.input {
+  @apply w-full rounded-xl border-2 border-basil-950/10 bg-white/80 backdrop-blur-sm px-4 py-3 text-sm focus:border-basil-600 focus:bg-white focus:ring-4 focus:ring-basil-600/10 outline-none transition-all duration-200 placeholder:text-basil-950/40;
+}
+
+.label {
+  @apply block text-[11px] font-bold uppercase tracking-wider text-basil-800/80 mb-2 ml-1;
+}
+
+.badge {
+  @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] uppercase font-bold tracking-wider;
+}
